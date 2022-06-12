@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 40px;
+        width: 80%;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    #container>div {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+
+    }
+
+    h3 {
+        margin-left: 20px;
+    }
+
+    p {
+        margin-left: 20px;
+    }
+
+    img {
+        height: 300px;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+</style>
+
+<body>
+    <div id="container"></div>
+</body>
+
+</html>
+<script>
+
+
+    var data = [
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/Sarkaru-Vaari-Paata-705x750-395d2010-cbbb-11ec-a71e-b7825cbc9ee5.jpg",
+            name: "SARKARU VAARI PAATA",
+            Release_date: "22nd,MAY,2022",
+            imdb: "9"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/Top-Gun--Maverick-705x750-9f0557d0-cd09-11ec-b6d4-abcf25c3dd54.jpg",
+            name: "TOP GUN:MAVERICK",
+            Release_date: "21st,APRIL,2021",
+            imdb: "8"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/Don-1035x420-4c08a510-8375-11ec-99c0-dbb293fc2f26-64568880-d04b-11ec-98b3-41c37f260d1c.jpg",
+            name: "DON",
+            Release_date: "15th,APRIL,2022",
+            imdb: "9"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/KGF-1035x420-c3374de0-b6ff-11ec-9639-8322852eadd4.jpg",
+            name: "K.G.F-2",
+            Release_date: "12th,APRIL,2022",
+            imdb: "9"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/F3-1035x420-80975fa0-cba1-11ec-9110-77d6e3ad5005.jpg",
+            name: "F-3",
+            Release_date: "27th,MAY,2022",
+            imdb: "8"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/RRR-north-1035x420-4dddc500-6a20-11ec-a2ee-ab35e08cdc12.jpg",
+            name: "R.R.R",
+            Release_date: "15th,APRIL,2022",
+            imdb: "9"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/Doctor-Strange--In-The-Multiverse-Of-Madness-1035x420-72147810-b755-11ec-a762-319bdb0970f2.jpg",
+            name: "DOCTOR STRANGE",
+            Release_date: "27th,MAY,2022",
+            imdb: "9"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/120DB-Dhwani-1035x420-96e6ca40-d6a8-11ec-b2b4-b70973efa5a2.jpg",
+            name: "DHWANI",
+            Release_date: "27th,MAY,2022",
+            imdb: "8"
+        },
+        {
+            image: "https://assetscdn1.paytm.com/images/cinema/Shekar-1035x420-5a8a8500-d6a8-11ec-b2b4-b70973efa5a2.jpg",
+            name: "SHEKAR",
+            Release_date: "15th,APRIL,2022",
+            imdb: "6"
+        }
+    ]
+
+    localStorage.setItem("movies", JSON.stringify(data))
+
+    display(data)
+
+    function display(data) {
+
+        data.forEach(function (elem) {
+
+            var box = document.createElement("div")
+
+            var url = document.createElement("img")
+            url.src = elem.image
+            var name = document.createElement("h3")
+            name.innerText = elem.name
+            var date = document.createElement("p")
+            date.innerText = "Release_date :-" + " " + elem.Release_date
+            var imdb = document.createElement("p")
+            imdb.innerText = "imdb rating:-" + " " + elem.imdb
+
+            box.append(url, name, date, imdb)
+            container.append(box)
+        })
+
+        window.location.href = "next.html"
+
+    }
+
+</script>

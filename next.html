@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 40px;
+        width: 80%;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    #container>div {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+
+    }
+
+    h3 {
+        margin-left: 20px;
+    }
+
+    p {
+        margin-left: 20px;
+    }
+
+    img {
+        height: 300px;
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+</style>
+
+<body>
+    <!-- <select id="sortbyrating" onchange="sortbyrating()">
+        <option value="none">Sort filter</option>
+        <option value="LTH">Sort by low rating to high</option>
+        <option value="HTL">Sort by High rating to low</option>
+    </select> -->
+    <button id="sort-lh">Sort by low rating to high</button>
+    <button id="sort-hl">Sort by High rating to low</button>
+
+    <div id="container"></div>
+</body>
+
+</html>
+<script>
+
+
+
+    var movies = JSON.parse(localStorage.getItem("movies")) || []
+
+
+    display(movies)
+
+    function display(data) {
+
+        document.querySelector("#container").innerHTML = null
+        data.forEach(function (elem) {
+
+            var box = document.createElement("div")
+
+            var url = document.createElement("img")
+            url.src = elem.image
+            var name = document.createElement("h3")
+            name.innerText = elem.name
+            var date = document.createElement("p")
+            date.innerText = "Release_date :-" + " " + elem.Release_date
+            var imdb = document.createElement("p")
+            imdb.innerText = "imdb rating:-" + " " + elem.imdb
+
+            box.append(url, name, date, imdb)
+            container.append(box)
+        })
+
+    }
+
+
+    var sortl = document.querySelector("#sort-lh")
+    sortl.addEventListener("click", myfunction)
+
+    function myfunction() {
+        event.preventDefault();
+
+        var movies = JSON.parse(localStorage.getItem("movies")) || []
+
+        movies.sort(function (a, b) {
+            return a.imdb - b.imdb
+        })
+        display(movies)
+        console.log(movies)
+
+    }
+
+
+    var sorth = document.querySelector("#sort-hl")
+    sorth.addEventListener("click", mylist)
+
+    function mylist() {
+        event.preventDefault();
+
+        var movies = JSON.parse(localStorage.getItem("movies")) || []
+
+        movies.sort(function (a, b) {
+            return b.imdb - a.imdb
+        })
+        display(movies)
+        console.log(movies)
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // var movies = JSON.parse(localStorage.getItem("movies")) || []
+
+
+    // display(movies)
+
+    // function display(data) {
+
+    //     document.querySelector("#container").innerHTML = null
+    //     data.forEach(function (elem) {
+
+    
+
+
+
+
+</script>
